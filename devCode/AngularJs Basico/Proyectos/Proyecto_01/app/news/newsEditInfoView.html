@@ -1,0 +1,98 @@
+<form class="form-horizontal" name="newsForm">
+    <fieldset>
+        <legend>Detalle de Noticia</legend>
+
+        <div class="form-group"
+             ng-class="{'has-error': newsForm.inputTituloNoticia.$invalid && newsForm.inputTituloNoticia.$dirty}">
+            <label for="inputTituloNoticia" class="col-sm-2 control-label">Titulo</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control"
+                       id="inputTituloNoticia"
+                       name="inputTituloNoticia"
+                       placeholder="Titulo de la noticia"
+                       ng-model="vm.newsItem.tituloNoticia"
+                       ng-minlength="6"
+                       ng-maxlength="40"
+                       required>
+                <span class="help-block has-error">
+                    <span ng-messages="newsForm.inputTituloNoticia.$error"
+                            ng-if="newsForm.inputTituloNoticia.$dirty">
+                        <span ng-message="required">Ingrese un título para la noticia</span>
+                        <span ng-message="maxlength">Se admite 40 caracteres como máximo</span>
+                        <span ng-message="minlength">Se admite 6 caracteres como mínimo</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': newsForm.inputCodigoNoticia.$invalid && newsForm.inputCodigoNoticia.$dirty}">
+            <label for="inputCodigoNoticia" class="col-sm-2 control-label">Código</label>
+            <div class="col-sm-6 col-md-3">
+                <input type="text" class="form-control"
+                       id="inputCodigoNoticia"
+                       name="inputCodigoNoticia"
+                       ui-mask="AAA-9999"
+                       ng-model="vm.newsItem.codigoNoticia" required>
+                <span class="help-block has-error" ng-show="newsForm.inputCodigoNoticia.$invalid && newsForm.inputCodigoNoticia.$dirty">
+                    Ingrese un código para la noticia.
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputFechaPublicacion" class="col-sm-2 control-label">Fecha de Publicación</label>
+            <div class="col-sm-6 col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputFechaPublicacion"
+                           uib-datepicker-popup="MMM dd,yyyy"
+                           is-open="vm.opened"
+                           placeholder="Fecha de Publicación"
+                           ng-model="vm.newsItem.fechaPublicacion">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="vm.showDatepicker($event)">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputDescripcionNoticia" class="col-sm-2 control-label">Descripcion</label>
+            <div class="col-sm-10">
+                <textarea rows="8" class="form-control"
+                          id="inputDescripcionNoticia"
+                          placeholder="Descripción de la noticia"
+                          ng-model="vm.newsItem.descripcionNoticia"></textarea>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputBannerNoticia" class="col-sm-2 control-label">Banner</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputBannerNoticia"
+                       placeholder="Banner para la noticia"
+                       ng-model="vm.newsItem.banner">
+                <img src="{{vm.newsItem.banner}}" style="margin-top: 10px"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputDestacadoNoticia" class="col-sm-2 control-label">Destacado</label>
+            <div class="col-sm-offset-2">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="inputDestacadoNoticia"
+                        ng-model="vm.newsItem.destacado">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <span><button class="btn btn-primary"
+                              ng-click="vm.guardar()">Guardar</button></span>
+                <span><button class="btn btn-primary"
+                              ng-click="vm.cancelar()"
+                              style="margin-left: 10px">Cancelar</button></span>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
