@@ -1,0 +1,3 @@
+//instalar módulo para poder realizar las conexiones con twitter
+
+npm install passport-twitter --save

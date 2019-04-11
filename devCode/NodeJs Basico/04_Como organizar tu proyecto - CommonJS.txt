@@ -1,0 +1,48 @@
+CommonJS
+========
+Son un grupo de trabajadores voluntarios con el proposito de standarizar APIs de JavaScript
+
+Para llamada de archivos de otros módulos
+=========================================
+
+Asumiento que se tiene la siguiente estructura
+
+app
+	connections
+		archivo1.js
+		archivo2.js
+	controllers
+		archivo3.js
+	models
+
+	si uno se encuentra en el "archivo1.js" y se requiere utilizar código del archivo "archivo2.js" se importa de la siguiente manera:
+
+	var archivo2 = require('./archivo2');
+
+	si uno se encuentra en el "archivo1.js" y se requiere utilizar código del archivo "archivo3.js" se importa de la siguiente manera:
+
+	var archivo3 = require('../controllers/archivo3');
+
+
+	*Otra forma de exoprtar módulos es a travéz del "module.exports"
+
+	exports es un ayudante del "module.exports"
+
+
+Estructura de proyecto a seguir
+===============================
+
+CursoNode
+	app
+		connections
+		controllers
+		middlewares
+		models
+		views
+	node_modules  * Se crea automáticamente cuando instalamos el primer módulo con npm y dentro ella se almacenarán todos los módulos instalados
+	public
+		js
+		css
+		img
+package.json	* El archivo donde estará la descripción de nuestra aplicación
+server.js 		* Es el archivo donde tendremos la configuración de nuestro servidor

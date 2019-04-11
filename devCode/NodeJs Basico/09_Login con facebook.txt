@@ -1,0 +1,34 @@
+swig
+====
+//Instalar el motor de template
+
+npm install swig --save
+
+supervisor
+=========
+//módulo que sirve para dejar ejecutando comandos eternamente
+
+npm install -g supervisor
+
+//cada vez que se quiera correr el server de express se ejecuta lo siguiente
+
+supervisor [nombre del archivo de configuración del servidor]
+
+//para usar autentificación con cuentas de redes sociales
+//se trabaja con un módulo de node llamado passport
+
+npm install passport --save
+
+//instalar un módulo para poder utilizar sesiones en el server de express 
+
+npm install express-session --save
+
+//para que express pueda realizar sesiones, express requiere
+de las cookies. Para realizar la instalación se realiza el siguiente comando
+
+npm install cookie-parser --save
+
+//instalar módulo para poder realizar las conexiones con facebook
+
+npm install passport-facebook --save
+

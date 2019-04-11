@@ -1,0 +1,38 @@
+CURSO NODE JS
+=============
+
+COMANDOS 
+========
+npm search socket.io -- para buscar paquetes 
+npm view socket.io   -- par buscar información de paquetes
+npm ls               -- listado de paquetes que tenemos instalados en el lugar donde nos encontramos
+npm ls -g            -- listado de paquetes que tenemos instalados globalmente
+
+
+TEORIA
+======
+
+Instalación de paquetes 
+
+Paquetes locales
+----------------
+	Los paquetes locales son los que se instalan sobre la aplicación en la que se está trabajando
+	solo se podrán utilizar en esta aplicación
+
+	para instalar por consola
+	-------------------------
+	npm install "paquete"
+
+	modo de uso
+	-----------
+		require("paquete")
+
+	Al instalar un pauqete de manera local se creará una carpeta más llamada "node modules" donde se alojarán todos los paquetes instalados por nmp
+
+Paquetes globales
+-----------------
+	Los paquetes globales no son recomendados
+
+	para instalar por consola
+	-------------------------
+	npm install -g "paquete"

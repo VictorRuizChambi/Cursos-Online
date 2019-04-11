@@ -1,0 +1,48 @@
+Instalación de MondoDB
+======================
+
+Consulta de bases de datos en mongoDB
+=====================================
+show dbs
+
+Crear una nueva base de datos
+=============================
+//Se creará fisicamente la base de datos cuando se ingrese el primer registro a la base de datos
+use [Nombre de la base de datos a crear]
+
+Ver la base de datos en la que estamos
+======================================
+db
+
+Comando para ver todas las colecciones que se tiene dentro de la base de datos
+==============================================================================
+show collections
+
+Comando para insertar una colección en mongoDB
+==============================================
+db.[nombre de la colección].insert({name: 'Victor', age : 22})
+
+Otra forma de insertar una colección
+====================================
+
+usuario1 = {name : 'Carlos', friends : [{ name : 'michael', age : 22} , {name : 'jhon' , age : 23} ]}
+
+(enter)
+
+db.[nombre de la colección].insert(usuario1)
+
+Comando para ver la lista de registros de una colección
+=======================================================
+db.[nombre de la colección].find()
+
+Comando para traer un registro de una colección
+===============================================
+db.[nombre de la colección].find({ name : 'Victor'})
+
+Comando para traer el primer elemento registrado de una colección
+=================================================================
+db.[nombre de la colección].findOne()
+
+Comando para traer el primer elemento registrado de una colección en base a un criterio de búsqueda
+===================================================================================================
+db.[nombre de la colección].findOne({ name : 'Victor'})

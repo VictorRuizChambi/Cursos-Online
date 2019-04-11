@@ -1,0 +1,22 @@
+Con node nosotros podemos crear nuestro servidor
+y se levanta la aplicación sobre este servidor
+
+node.js crear un servidor en blanco, que solo te permite realizar peticiones HTTP de tipo GET
+
+Al programador le toca configurar: sesiones, peticiones de tipo post, cookies, etc y otras caracteristicas que deberá tener un servidor para poder desplegar una aplicación.
+
+La principal ventaja es que solo tendrá las configuraciones que sean necesarios, por ellos las respuestas del servidor serán más rápidas.
+
+
+Modulos NodeJs
+==============
+
+el core de node nos da una serie de módulos que podemos utilizar
+
+ fs(fileSystem):		 Módulo para realizar operaciones con nuestro sistema de archivos local.
+ http:					 Módulo mñas básico para crear servidores de aplciación web.
+ events:				 Módulo que permite crear administradores de eventos.
+ querystring: 			 Módulo para parsear una cadena a un objeto en JavaScript.
+ path: 					 Módulo que permite manipular la ruta a cualquier archivo de nuestro sistema local.
+
+
