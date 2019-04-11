@@ -1,0 +1,126 @@
+Lista de comandos
+=================
+
+
+Clase 04 - Configurar Git
+=========================
+
+git config --global user.name "VictorRuizChambi"
+
+git config --global user.email victor100490sistem@gmail.com
+
+git config -- list
+
+Clase 05 - Documentación
+=========================
+No aplica
+
+Clase 06 - Inicializar un repositorio
+=====================================
+//para inicializar un repositorio (convertir una carpeta en repositorio)
+git init
+
+//para ver el status del repositorio
+git status
+
+Clase 07 - Añadir archivos, status y commit
+===========================================
+//para agregar nuevos archivos individualmente
+git add [nombre del archivo]
+
+//para ver el status del repositorio
+git status
+
+//para realizar un commit de un archivo
+// el comando -m se utiliza para agregar un mensaje o comentario
+git commit -m "mensaje agregado por la realización del commit"
+
+//para agregar nuevos archivos por bloque
+git add .
+
+// para revertir el estado de algún archivo que ha sido agregado, más no commiteado, se aplica el siguiente comando
+git reset HEAD [nombre del archivo]
+
+
+Clase 08 - Usar el entorno staging
+==================================
+//se aplica este comando cuando el archivo no se encuentra en estado staging y se desea revertir algun cambio realizado en el archivo 
+
+git checkout -- [nombre de archivo]
+
+Clase 09 - Borrar Archivo
+=========================
+//Este comando también se aplica cuando se ha borrado fisicamente un archivo del área de trabajo de manera accidental y se desea revertir la acción realizada(recuperar el archivo, solo se recuperará la última versión guardada por git)
+
+git checkout -- [nombre de archivo]
+
+//Para borrar archivos de nuestra area de trabajo
+git rm [nombre del archivo]
+
+//Este comando también se aplica cuando se ha borrado fisicamente un archivo del área de trabajo depués de haber aplicado el comando "git rm"(recuperar el archivo, el archivo se encontrará en estado stagging)
+
+git reset HEAD [nombre del archivo]
+
+Clase 10 - Trabajar con log
+===========================
+//Este comando nos brindará información de todos los commits realizados hasta el momento
+
+git log
+
+//Este comando se aplica también para regresar en el tiempo hasta uno de los commits realizados en el proyecto, retorna todos los archivos con el estado que estuvieron en el momento que se realizó el commit.
+
+git checkout -- [código hash del commit]
+
+
+//si es que se realiza cambios en el proyecto, después de regresar en el tiempo y se quieren guardar estos nuevos cambios, se aplica el siguiente comando 
+
+git checkout -b [nombre del nuevo branch]
+
+Clase 11 - Usar Ramas
+=====================
+
+//para visualizar las ramas que tenemos en nuestro proyecto
+
+git branch
+
+// si deseamos cambiar a una rama específica
+// tener presente que primero se debe guardar los cambios
+// de la rama donde nos encontramos actualmente para luego poder movilizarnos a la rama a donde nos queremos trasladar
+git checkout [nombre de la rama]
+
+// para borrar un branch
+
+git branch -d [nombre de la rama]
+
+// cuando queremos borrar un branch defenitivamente, que no presenta ningún punto de intersección con la rama principal y ya no se va a volver a utilizar nunca más se aplica el siguiente comando
+
+git branch -D [nombre de la rama]
+
+
+//si es que se desea agregar cambios realizados en otra rama a la rama en la que me encuentro actualmente se aplica el siguiente comando
+
+git merge [nombre de la rama con la cual se quiere hacer merge]
+
+Clase 12 - Introducción a GitHub
+================================
+No aplica
+
+Clase 13 - Subir un proyecto a GitHub
+=====================================
+//comandos utilizado para subir a un repositorio de github, el proyecto que se tenga en un repositorio de una máquina local
+
+git remote add origin https://github.com/VictorRuizChambi/calendario-devCode.git
+git push -u origin master
+
+Clase 14 - Clonar un repositorio
+================================
+
+// para clonar un repositorio en una carpate de otra computadora, se aplica el siguiente comando
+
+git clone [url github del repositorio]
+git clone https://github.com/VictorRuizChambi/calendario-devCode.git
+
+// para descargar las actualizaciones de las fuentes almacenadas en GitHub que hayan sido realizadas por algún colega a travéz de otra computadora se aplica el siguiente comando
+//para realizar este comando se tiene que encontrar dentro del repositorio creado en la máquina local
+
+git pull origin master
