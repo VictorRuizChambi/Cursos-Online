@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Wiki</title>
+    <!-- Page Styles-->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/toastr.min.css"/>
+    <!-- Angular Scripts -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-mocks.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/angular-locale_es-pe.min.js"></script>
+    <!-- Application Scripst -->
+    <script src="app/app.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mask.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/toastr.min.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/news/newsCtrl.js"></script>
+    <script src="app/categorias/categoriesCtrl.js"></script>
+    <script src="app/news/newsDetailCtrl.js"></script>
+    <script src="app/news/newsEditCtrl.js"></script>
+    <!--Services-->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/common.servicesMock.js"></script>
+    <script src="common/services/categories/categoriesService.js"></script>
+    <script src="common/services/news/newsResource.js"></script>
+</head>
+<body ng-app="newsWikiApp">
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div>
+        <a class="navbar-brand" href="#"><span class="title">News Wiki</span></a>
+        <button type="button" class="navbar-toggler collapsed"
+                data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active"><a ui-sref="home">
+                    <i class="glyphicon glyphicon-home"></i></a>
+                </li>
+                <li ui-sref-active="active"><a ui-sref="newsList">Noticias</a></li>
+                <li ui-sref-active="active"><a ui-sref="newsEdit.info({idNoticia:0})"><i class="glyphicon glyphicon-plus"></i>Agregar Noticias</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <!--1ra versión de la página -->
+    <!--    <div class="row center" ng-controller="CategoriesCtrl as vm">
+        &lt;!&ndash; Nose usa llave cuando se usa los nombres de forma directa las funciones &ndash;&gt;
+        &lt;!&ndash;o variables definidas dentro del controlador &ndash;&gt;
+        <button ng-click="vm.toogleCategories()" class="btn btn-default" style="margin-bottom:10px">
+            {{vm.showCategories? "Ocultar":"Mostrar"}} Categorias
+        </button>
+        <br/>
+        <div ng-show="vm.showCategories" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" ng-repeat="cate in vm.categories">
+                <input type="radio" name="options" id="{{cate}}" autocomplete="off">{{cate}}
+            </label>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="NewsCtrl as vm">
+        <div class="row">
+            <fieldset>
+                <lengend class="titulo">Destacados</lengend>
+            </fieldset>
+            &lt;!&ndash; ruta de locales de angular &ndash;&gt;
+            &lt;!&ndash; https://cdnjs.com/libraries/angular-i18n &ndash;&gt;
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-sm-6 col-md-4" ng-repeat="newsItem in vm.news | filter:{destacado: true} | orderBy: '-fechaPublicacion'">
+                        <div class="thumbnail">
+                            <img ng-src="{{newsItem.banner}}" class="banner">
+                            <div class="caption">
+                                <span class="fecha">{{newsItem.fechaPublicacion | date}}</span>
+                                <h3>{{newsItem.tituloNoticia}}</h3>
+                                <p>{{newsItem.descripcionNoticia.substring(0,200)+"..."}}</p>
+                                <p>
+                                    <a href="#" class="btn btn-primary" role="button">Leer Más</a>
+                                    <a href="#" class="btn btn-default" role="button">Editar</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <fieldset>
+                <legend class="titulo">Últimas noticias</legend>
+            </fieldset>
+
+            <div class="col-sm-4 col-md-2" ng-repeat="newsItem in vm.news | filter:{destacado: false} | orderBy: '-fechaPublicacion'">
+                <div class="thumbnail">
+                    <img ng-src="{{newsItem.banner}}" class="banner-small">
+                    <span class="fecha">{{newsItem.fechaPublicacion | date}}</span>
+                    <div class="caption">
+                        <h4>{{newsItem.tituloNoticia}}</h4>
+                        <p>
+                            <a href="#" class="btn btn-primary btn-xs" role="button">Leer</a>
+                            <a href="#" class="btn btn-default btn-xs" role="button">Editar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <!--2da versión de la página -->
+    <div ui-view></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<div class="row center" ng-controller="CategoriesCtrl as cc">
+    <!-- Nose usa llave cuando se usa los nombres de forma directa las funciones -->
+    <!--o variables definidas dentro del controlador -->
+    <button ng-click="cc.toogleCategories()" class="btn btn-default" style="margin-bottom:10px">
+        {{cc.showCategories? "Ocultar":"Mostrar"}} Categorias
+    </button>
+    <br/>
+    <div ng-show="cc.showCategories" class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary"
+               ng-repeat="cate in cc.categories" ng-click="vm.onCategoryClick(cate)">
+            <input type="radio" name="options"
+                   id="{{cate}}" autocomplete="off">{{cate}}
+        </label>
+        <label class="btn btn-primary active"
+               ng-click="vm.onCategoryClick()">
+            <input type="radio" name="options"
+                   id="mostrarTodos" autocomplete="off">Mostrar Todos
+        </label>
+    </div>
+</div>
+<!-- 1ra versión de ng-controller -->
+<!--<div class="row" ng-controller="NewsCtrl as vm"> -->
+<!-- 2da versión de ng-controller -->
+<div class="row">
+    <div class="row">
+        <fieldset>
+            <lengend class="titulo">Destacados</lengend>
+        </fieldset>
+        <!-- ruta de locales de angular -->
+        <!-- https://cdnjs.com/libraries/angular-i18n -->
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="newsItem in vm.news | filter:{destacado: true} | filter:{categoria: vm.filterCategory} | orderBy: '-fechaPublicacion'">
+                <div class="thumbnail">
+                    <img ng-src="{{newsItem.banner}}" class="banner">
+                    <div class="caption">
+                        <span class="fecha">{{newsItem.fechaPublicacion | date}}</span>
+                        <h3>{{newsItem.tituloNoticia}}</h3>
+                        <p>{{newsItem.descripcionNoticia.substring(0,200)+"..."}}</p>
+                        <p>
+                            <a ui-sref="newsDetail({idNoticia: newsItem.idNoticia})" class="btn btn-primary" role="button">Leer Más</a>
+                            <a ui-sref="newsEdit.info({idNoticia: newsItem.idNoticia})" class="btn btn-default" role="button">Editar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12" ng-show="(vm.news | filter:{destacado: true} | filter:{categoria: vm.filterCategory}).length == 0">
+                    <p>No hay noticias destacadas que mostrar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <fieldset>
+            <legend class="titulo">Últimas noticias</legend>
+        </fieldset>
+
+        <div class="col-sm-4 col-md-2" ng-repeat="newsItem in vm.news | filter:{destacado: false} | filter:{categoria: vm.filterCategory} | orderBy: '-fechaPublicacion'">
+            <div class="thumbnail">
+                <img ng-src="{{newsItem.banner}}" class="banner-small">
+                <span class="fecha">{{newsItem.fechaPublicacion | date}}</span>
+                <div class="caption">
+                    <h4>{{newsItem.tituloNoticia}}</h4>
+                    <p>
+                        <a ui-sref="newsDetail({idNoticia: newsItem.idNoticia})" class="btn btn-primary btn-xs" role="button">Leer</a>
+                        <a ui-sref="newsEdit.info({idNoticia: newsItem.idNoticia})" class="btn btn-default btn-xs" role="button">Editar</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" ng-show="(vm.news | filter:{destacado: false} | filter:{categoria: vm.filterCategory}).length == 0">
+            <p>No hay noticias que mostrar</p>
+        </div>
+    </div>
+</div>
