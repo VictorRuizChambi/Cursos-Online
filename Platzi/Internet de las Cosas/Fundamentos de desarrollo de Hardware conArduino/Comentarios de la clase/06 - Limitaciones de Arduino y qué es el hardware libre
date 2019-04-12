@@ -1,0 +1,13 @@
+Mis notas de la calse:
+
+El hardware Libre
+-Aquellos dispositivos en los que sus esquematicos (Diseños electrónicos y mecánicos) son de acceso libre, abierto y en los que se permite su uso para la creación de nuevos dispositivos usando estos como base.
+-El caso Arduino: Pueden desarrollarse placas usando las esquemáticas de Arduino siempre que no se utilice el nombre Arduino para su comercialización.
+
+Las limitaciones de las Arduino
+-Su tamaño. Esta es una limitación evidente para la comercialización de proyectos a gran escala. Debido a que los proyectos de tecnología electrónica buscan ser lo más eficientes posibles y las tarjetas Arduino tienen un uso desmedido del espacio, esto con fines claros, por ejemplo facilitar el prototipado.
+
+La finalidad de Arduino
+-Debido a su tamaño es especial para realizar prototipos.
+-Permite trabajar con agilidad y facilidad.
+-Es útil para la experimentación y el estudio de la electrónica.

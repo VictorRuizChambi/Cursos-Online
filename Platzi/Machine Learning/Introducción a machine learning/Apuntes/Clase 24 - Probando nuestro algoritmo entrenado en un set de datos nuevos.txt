@@ -1,0 +1,78 @@
+
+-- aporte de un compañero código de aplicación
+--------------------------------------------------------
+# Requirements
+#   pip install matplotlib
+#   pip install python-mnist
+#   pip install scikit-learn
+
+from mnist import MNIST
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
+from matplotlib import pyplot
+import numpy
+
+
+defevaluate_classifier(classifier, t_data, t_labels):
+    prediction = classifier.predict(t_data)
+    c_matrix = confusion_matrix(t_labels, prediction)
+    return c_matrix
+
+
+defgenerate_score(c_matrix):
+    return (c_matrix.diagonal().sum() * 100.) / c_matrix.sum()
+
+
+# define and load data from path
+mnData = MNIST('/path/to/data')
+data, labels = mnData.load_training()
+
+# split data to train
+train_data, test_data, train_labels, test_labels = train_test_split(data, labels, test_size=0.3, random_state=46)
+
+# Decision Tree
+dt_classifier = DecisionTreeClassifier()
+dt_classifier.fit(train_data, train_labels)
+cm = evaluate_classifier(dt_classifier, test_data, test_labels)
+print(cm)
+score = generate_score(cm)
+print(score)
+
+# Random Forest
+rf_classifier = RandomForestClassifier(n_estimators=150, min_samples_split=2)
+rf_classifier.fit(train_data, train_labels)
+cm2 = evaluate_classifier(rf_classifier, test_data, test_labels)
+print(cm2)
+score2 = generate_score(cm2)
+print(score2)
+
+#
+test_data, test_labels = mnData.load_testing()
+predicted = rf_classifier.predict(test_data)
+cm3 = evaluate_classifier(rf_classifier, test_data, numpy.array(test_labels))
+print(cm3)
+score3 = generate_score(cm3)
+print(score3)
+
+# see digit
+digit = test_data[6]
+
+digit_float = numpy.array(digit, dtype="float")
+pixels = digit_float.reshape((28, 28))
+pyplot.imshow(pixels, cmap='gray')
+pyplot.show()
+print(rf_classifier.predict([test_data[6]]))
+
+
+
+-- aporte de un compañero 
+-------------------------
+Una vez que ya tengo entrenada una máquina, cómo puedo ponerla en producción, o más bien cómo puedo integrarla a un proyecto ya construido.
+
+Cómo podría lleagr a ser esto por ejemplo un API ?
+
+-- aporte de un compañero 
+-------------------------
+No tengo mucha experiencia con Python, pero una buena alternativa es lanzar un contenedor de Docker que ejecute tu servicio de ML con Flask (A Python Microframework) mediante el cual publicas las API’s que serán consumidas por tu proyecto ya construido. En el siguiente repo puedes ver un ejemplo de Flask con Pandas https://github.com/frojas-gfourmis/flask-pandas-elasticbeanstalk-example

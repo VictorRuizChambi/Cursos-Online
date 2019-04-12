@@ -1,0 +1,31 @@
+Mis apuntes de esta clase:
+
+Eleccion del software a utilizar
+-En el mundo de los sistemas embebidos existen multiples opciones de Software para operar el Hardware.
+-Por ejemplo:
+–Los iPhone usan iOS
+–Los telefonos no Apple utilizan Android
+–En algún momento existieron Nokia con Symbian
+
+Sistemas embebidos
+-Se refiere al software que permite operar los dispositivos electrónicos y viene incluido con los dispositivos.
+-Un ejemplo de esto es el CMOS, que ya viene incluido en la placa base de los computadores.
+-Algunos sistemas de Hardware menos complejos tambien funcionan gracias al software embebido que les permite hacer uso de una manera particular del Hardware que poseen.
+
+Sistemas embebidos en Arduino
+-En Arduino por ejemplo, podemos hacer encender un led cada segundo.
+-Para lograr esto debemos realizar el diseño de la electrónica que necesitamos para conseguir el objetivo.
+-Luego debemos conseguir los componentes.
+-Después es necesario realizar el montaje del circuito en un prototipo.
+-Pero para lograr encenderlo a través del Arduino es necesario crear un programa que le permita al procesador de la placa enviar los impulsos electricos necesarios para completar la tarea.
+-Esta programación se puede desarrollar en un software llamado Sketch, que finalmente permite instalar el software desarrollado en la placa Arduino, quedando este instalado de manera embebida.
+
+Frameworks para el diseño y desarrollo de interfaces para software embebido
+-QT por The QT Company.
+–Permite crear interfaces con C++.
+–Tiene una fuerte curva de aprendizaje.
+–Es altamente útil aprender a utilizar este framework
+–Las interfaces son gráficas y llamativas.
+
+La manofactura
+-Es el proceso de montaje del prototipo basado en los diseños electronico y mecánico.

@@ -1,0 +1,123 @@
+
+Same Origin Policy: Solo se permite hacer request desde el mismo dominio
+JSONP: Jesson con Padding
+CORS: Cross-Origin Resource Sharing
+DOM: Document Object Model
+
+### El Desarrollo Web Moderno
+* Sacha Lifszyc - @slifszyc.
+* Vamos a crear un JS que acceda a una API sobre programas de Televisión.
+* jQuery se encuentra en el 60% de los sitios de la actualidad.
+* A partir de que naciese Node.JS la comunidad creció exponencialmente.
+* Antes el navegador solicitaba la página y el servidor le enviaba toda la
+información en una sola pantalla, o sea para hacer otra consulta había que
+volver a solicitar toda otra pantalla.
+* Luego surgió el Frontend y el Backend, con las aplicaciones corriendo en local
+pero realizando el proceso de los datos en servidor, por ejemplo Google Docs.
+* Frontend
+    * **HTML5** ------> Estructura
+    * **CSS3** -------> Diseño
+    * **JavaScript** -> Comportamiento
+* Mediante el uso de API REST (JSON) se comunican el Frontend con el Backend.
+* **HTTP(S) Request** GET (consultar), POST (crear), Put (actualizar), Delete (borrar).
+* Ejemplo de uso de GET
+    * http://api.tvmaze.com/shows/1 (devuelve un JSON con la información de la serie.
+* Por lo general, las API tienen una Same-Origin Policy (sólo se pueden realizar
+Request a la misma página en la que se encuentra).
+* Modos de realizar Request:
+    * **JSONP** JSON con Padding, sólo para métodos GET.
+    * **CORS**  Cross-Origin Resource Sharing. Precisa configuración en el Server.
+* **API REST** El servidor permite el acceso a ciertos puntos para poder realizar
+consultas y buscar información. Facilita la comunicación para obtener/modificar
+datos del servidor vía JSON.
+* **DOM** Document Object Model. jQuery permite acceder al DOM para modificarlo
+de un modo sencillo.
+
+
+--------------------------------------------------------------
+CORS (Cross-Origin Resource Sharing) nos permite realizar todos los métodos HTTP permitiendo realizar peticiones a ciertos dominios. Esto se configura del lado del backend.
+--------------------------------------------------------------
+DemocracyOS: Software para promover la participación ciuadana en la política.
+
+
+
+jQuery:
+
+El lenguaje de programación es JavaScript. jQuery es una librería.
+
+
+
+CoffeeScript es un pequeño lenguaje para compilar en Javascript.
+
+
+
+Javascript creció a finales de 2015 gracias por la existencia de NodeJs, AngularJs, ReactJS y otros frameworks.
+
+NPM empezó como un gestor de paquetes al lado del Back-End, posteriormente se manejó para Front-End. Su finalidad es que si se crea un módulo pequeño útil poder aportar a la comunidad y dejarlo en este repositorio.
+
+Con NPM se descargan estos paquetes (dependencias de nuestro proyecto) y con Browserify se integran (relacionar dependencias con nuestro código).
+
+
+
+Se pueden encontrar respuestas de inquietudes en la comunidad de GitHub y en Stackoverflow.
+
+
+
+Hace unos años, un navegador hacia un request a un servidor web que solicitaba una página y el servidor accedía a una base de datos para obtener la información, la BD devolvía la información al servidor web y este al navegador. Con el tiempo fueron apareciendo más dispositivos (smartphones, tv, tablet) y dejo de ser la típica pantalla del navegador de escritorio para que fuera un navegador móvil. Fue cambiando la manera de estructurar los sitios web, pasando no toda la información sino pequeños fragmentos de html. La lógica del lado del servidor fue pasando al lado del cliente (renderización de vistas, manejo de eventos, enrutamiento de la app, llamadas a las APIs, validaciones, seguridad, autenticación de usuarios).
+
+
+
+Front-End: Html5, CSS3, Js.
+
+
+
+Assets: Fuentes e imágenes (Cosas adicionales que necesita una página).
+
+
+
+API REST: Comunicación entre el Front-End y el Back-End. Facilita la obtención y la modificación de datos que están almacenados en el servidor. El formato que se utiliza normalmente es JSON 'JavaScript Object Notation' aunque también se puede en XML. JSON se parece a lo que son objetos en Javascript (Llaves, clave-valor).
+
+Same-Origin Policy: Políticas y restricciones de seguridad al enviar request. Sólo se pueden realizar request a sitios del mismo dominio.
+
+
+URI 'uniform resource identifier / Identificador de recursos uniforme': Define la estructura de una dirección web con un esquema, ruta, consulta (?), solocitud (=) y fragmentos (#). Se diferencia de la URL es que esta es una dirección completa de un sitio web. La jerarquía de cómo está compuesta se define como URI. Ej. http : //www.hispamedios.com/ ? pagina=2 # inicio
+
+
+
+EndPoint: Es una URI que accede una aplicación cliente a un servidor web. Este recibe dicha petición y hace sus operaciones para almacenar datos, actualizar un fichero y devolver algo dato en específico.
+
+
+
+HTTP(S) Request: Get (Obtener Datos), Post (Almacenar Datos), Put (Almacenar o actualizar archivos), Delete (Eliminar Archivos)
+
+
+
+GET
+
+URI: 'api.tvmaze.com/shows/1'
+
+JSON: {"id":1,"url":"http://www.tvmaze.com/shows/1/under-the-dome","name":"Under the Dome”,”type”:"Scripted","language":"English","genres":["Drama","Science-...}
+
+
+
+POST
+
+URI: 'api.tvmaze.com/shows'
+
+JSON: {name: “El Chavo del 8”, type: “Comedy”, country: “Mexico”, …}
+
+
+
+JSONP (JSON con Padding): Sólo sirve para métodos GET. Poder establecer una función de callback para recibir el envío de los datos solicitados.
+
+
+
+CORS 'Cross-Origin Resource Sharing / Intercambio de Recursos de Origen Cruzado': Se permite para todos los métodos de HTTP. Habilita la transferencia segura de datos de dominios cruzados. Se configura a través del Back-End.
+
+ 
+
+
+
+DOM 'Document Object Model / Modelo de Objetos del Documento': Arbol de jerarquia que compone nuestro documento HTML. (<body><div></div></body>). JavaScript permite agregar, modificar y eliminar objetos del DOM para visualizar información adicional según los datos obtenidos.
+
+--------------------------------------------------------------

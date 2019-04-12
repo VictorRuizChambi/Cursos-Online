@@ -1,0 +1,69 @@
+Para usuarios que no esten usando jupyter como espacio de trabajo, o para los que tengan problemas con las librerias:
+
+Primero que todo tienen que instalar las librerias necesarias :
+(Comandos para windows)
+
+pip install python-mnist 
+
+Es importante recalcar que la libreria “mnist” y la libreria “python-mnist” son librerias distintas, y la que realmente necesitamos es la “python-mnist” (Si antes habian instalado la “mnist” es recomendado que la borren con el comando “pip uninstall mnist”)
+
+pip install sklearn
+
+No he tenido problemas con esta libreria, asi que, nada que decir 😃
+
+pip install matplotlib
+
+En cuanto a esta libreria, la linea
+"%matplotlib inline"
+Daba error, asi que la quite y el programa funciona totalmente igual
+
+Y por ultimo:
+
+pip install numpy
+
+Creo que esta libreria la trae por defecto la instalacion de python 3.x , pero para estar seguros.
+
+Ahora, aparte de todo esto, se me estaba generando un error en la libreria de python-mnist, no encontraba el paquete “MNIST”, buscando en stackoverflow, una solucion, y la que me sirvio, fue ir a:
+
+C:\Python3\Lib\site-packages\mnist
+
+Y copiar el archivo llamado “loader.py” ya que el error se situaba en que el archivo init.py no se encontraba con nada parecido en MNIST, copias el archivo en la carpeta donde tienes el programa que estas desarrollando. Con la unica diferencia, que ahora para poder importar la libreria, lo haremos con:
+
+from loader import MNIST
+
+Y listo, todos los problemas han sido solucionados…
+
+Si tienen alguna correccion o concejo, estoy abierto a ellos 😃
+
+====================================================================================================================================
+
+El codigo de esta clase:
+
+from matplotlib import pyplot as plt
+import numpy as np
+from loader import MNIST
+from sklearn.model_selection import train_test_split
+
+mndata = MNIST('MNIST_data')
+
+datos, labels = mndata.load_training()
+
+plt.gray()
+
+for i in range(25):
+    plt.subplot(5,5,i+1)
+
+    d_image = datos[i]
+    d_image = np.array(d_image, dtype = 'float')
+
+    pixels = d_image.reshape((28,28))
+
+    plt.imshow(pixels, cmap = 'gray')
+
+    plt.axis('off')
+
+plt.show()
+
+train_data,test_data,train_labels, train_labels,test_labels = train_test_split(datos,labels,test_size = 0.3, random_state=42)
+
+===================================================================================================================================

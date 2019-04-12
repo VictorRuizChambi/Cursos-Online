@@ -1,0 +1,77 @@
+
+-- aporte de un compañero para agregar calidad al código
+--------------------------------------------------------
+# Requirements
+#   pip install matplotlib
+#   pip install python-mnist
+#   pip install scikit-learn
+#   pip install seaborn
+
+import matplotlib.pyplot as plt
+from sklearn.datasets.samples_generator import make_blobs
+from sklearn.cluster import KMeans
+
+X, Y = make_blobs(n_samples=500,centers=4)
+plt.scatter(X[:, 0], X[:, 1], s=50)
+kMeans = KMeans(n_clusters=4)
+kMeans.fit(X)
+y_kMeans = kMeans.predict(X)
+centers = kMeans.cluster_centers_
+print(centers)
+plt.scatter(X[:, 0], X[:, 1], c=y_kMeans,cmap='viridis')
+plt.scatter(centers[:, 0], centers[:, 1], c='black',s=200,alpha=0.5)
+plt.show()
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+Por cada ejecución que realicemos, el clúster de puntos se generará de manera diferente, esto es porque el random_state está activo.
+
+Si quieres que el cluster siempre se genere de la misma manera debes pasar un valor fijo al parametro random_state en la función make_blobs().
+
+Quedaría algo así:
+
+X, Y = make_blobs(n_samples=500,centers=4,random_state=1)
+El valor fijo puede ser cualquier número real y el resultado siempre será el mismo, esto es útil para realizar pruebas o si la profesora quisiera que a todos nos salga el mismo cluster de puntos, pero como no lo estamos usando a todos nos saldrá un clúster aleatoreo.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+--Aporte de un compañero
+-----------------------
+
+Viendo nueva clase, y para los que estan trabajando , no olviden lo siguiente:
+
+En esta clase usamos una nueva libreria, la libreria “seaborn” , la cual, en windows la instalamos con:
+
+pip install seaborn
+
+
+Para poder ver las graficas, y no estamos en jupyter o espacios similares, debemos poner:
+
+plt.show()
+Y por ultimo, el codigo de esta clase:
+
+import matplotlib.pyplot as plt
+import seaborn as sns; sns.set()
+import numpy as np
+from sklearn.datasets.samples_generator import make_blobs
+from sklearn.cluster import KMeans
+
+X,Y = make_blobs(n_samples = 500, centers =4)
+
+plt.scatter(X[:,0],X[:,1], s=50)
+
+
+
+kmeans = KMeans(n_clusters=4)
+
+kmeans.fit(X)
+
+y_means = kmeans.predict(X)
+
+centers = kmeans.cluster_centers_
+print(centers)
+
+plt.scatter(X[:,0], X[:,1], c=y_means,cmap='viridis')
+plt.scatter(centers[:,0],centers[:,1], c='black',s=200,alpha = 0.5)
+plt.show()
