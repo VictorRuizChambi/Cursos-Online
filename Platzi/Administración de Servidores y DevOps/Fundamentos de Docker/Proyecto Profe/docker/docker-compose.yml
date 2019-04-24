@@ -8,12 +8,21 @@ services:
     depends_on:
       - db
     ports:
-      - "3000:3000"
+      - "3000-3010:3000"
     volumes:
-      - .:/usr/src
+      - /home/docker/host/contenedores/app:/usr/src
       - /usr/src/node_modules
 
   db:
     image: mongo
+
+  lb:
+    image: dockercloud/haproxy
+    links:
+      - app
+    ports:
+      - '3011:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
   
